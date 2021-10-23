@@ -36,9 +36,9 @@ public class Calculadora extends Application {
 
     private Separator separator;
 
-    private Label operacionLabel1;
-    private Label operacionLabel2;
-    private Label operacionLabel3;
+    //private Label operacionLabel1;
+    //private Label operacionLabel2;
+    //private Label operacionLabel3;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -125,17 +125,17 @@ public class Calculadora extends Application {
     }
 
     private void operaciones() {
-        if(operacionesCombo.getSelectionModel().getSelectedItem() == "+"){
+        if(operacionesCombo.getSelectionModel().getSelectedItem().equals("+")){
 
             resultado.realProperty().bind(primerNum.realProperty().add(segundoNum.realProperty()));
             resultado.imaginariaProperty().bind(primerNum.imaginariaProperty().add(segundoNum.imaginariaProperty()));
 
-        }else if(operacionesCombo.getSelectionModel().getSelectedItem() == "-"){
+        }else if(operacionesCombo.getSelectionModel().getSelectedItem().equals("-")){
 
             resultado.realProperty().bind(primerNum.realProperty().subtract(segundoNum.realProperty()));
             resultado.imaginariaProperty().bind(primerNum.imaginariaProperty().subtract(segundoNum.imaginariaProperty()));
 
-        }else if(operacionesCombo.getSelectionModel().getSelectedItem() == "*"){
+        }else if(operacionesCombo.getSelectionModel().getSelectedItem().equals("*")){
 
             resultado.realProperty().bind((primerNum.realProperty().multiply(segundoNum.realProperty()).
                     subtract(primerNum.imaginariaProperty().multiply(segundoNum.imaginariaProperty()))));
@@ -143,7 +143,7 @@ public class Calculadora extends Application {
             resultado.imaginariaProperty().bind((primerNum.realProperty().multiply(segundoNum.imaginariaProperty()).
                     add(primerNum.imaginariaProperty().multiply(segundoNum.realProperty()))));
 
-        }else if(operacionesCombo.getSelectionModel().getSelectedItem() == "/"){
+        }else if(operacionesCombo.getSelectionModel().getSelectedItem().equals("/")){
 
             resultado.realProperty().bind(((primerNum.realProperty().multiply(segundoNum.realProperty())).
                     add(primerNum.imaginariaProperty().multiply(segundoNum.imaginariaProperty()))).divide(
