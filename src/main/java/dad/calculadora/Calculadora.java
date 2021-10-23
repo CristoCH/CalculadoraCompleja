@@ -79,24 +79,25 @@ public class Calculadora extends Application {
         segundoNum = new NumComplejo();
         resultado = new NumComplejo();
 
-        operacionLabel1 = new Label(" ");
+        //si quisiera bindear el operador del combobox a un label
+        /*operacionLabel1 = new Label(" ");
         operacionLabel1.textProperty().bind(operacionesCombo.getSelectionModel().selectedItemProperty());
         operacionLabel2 = new Label(" ");
         operacionLabel2.textProperty().bind(operacionesCombo.getSelectionModel().selectedItemProperty());
         operacionLabel3 = new Label(" ");
-        operacionLabel3.textProperty().bind(operacionesCombo.getSelectionModel().selectedItemProperty());
+        operacionLabel3.textProperty().bind(operacionesCombo.getSelectionModel().selectedItemProperty());*/
 
 
         VBox operacionesVBox = new VBox(5, operacionesCombo);
         operacionesVBox.setAlignment(Pos.CENTER);
 
-        HBox operacionRealHbox = new HBox(5, realABText, operacionLabel1, realCDText, new Label(" i"));
+        HBox operacionRealHbox = new HBox(5, realABText, new Label(" + "), imaginarioABText, new Label(" i"));
         operacionRealHbox.setAlignment(Pos.CENTER);
 
-        HBox operacionImaginariaHbox = new HBox(5, imaginarioABText, operacionLabel2, imaginarioCDText, new Label(" i"));
+        HBox operacionImaginariaHbox = new HBox(5, realCDText, new Label(" + "), imaginarioCDText, new Label(" i"));
         operacionImaginariaHbox.setAlignment(Pos.CENTER);
 
-        HBox resultadoHbox = new HBox(5, resultadoRealText, operacionLabel3, resultadoImaginarioText, new Label(" i"));
+        HBox resultadoHbox = new HBox(5, resultadoRealText, new Label(" + "), resultadoImaginarioText, new Label(" i"));
         resultadoHbox.setAlignment(Pos.CENTER);
 
         VBox calculadoraVbox = new VBox(5, operacionRealHbox, operacionImaginariaHbox, separator, resultadoHbox);
