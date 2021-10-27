@@ -120,6 +120,10 @@ public class Calculadora extends Application {
         resultadoRealText.textProperty().bindBidirectional(resultado.realProperty(), new NumberStringConverter());
         resultadoImaginarioText.textProperty().bindBidirectional(resultado.imaginariaProperty(), new NumberStringConverter());
 
+        if(operacionesCombo.getSelectionModel().getSelectedItem().equals("+")) {
+            resultado.realProperty().bind(primerNum.realProperty().add(segundoNum.realProperty()));
+            resultado.imaginariaProperty().bind(primerNum.imaginariaProperty().add(segundoNum.imaginariaProperty()));
+        }
         operacionesCombo.getSelectionModel().selectedItemProperty().addListener((o, ov, nv) -> operaciones());
 
     }
